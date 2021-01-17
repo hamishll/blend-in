@@ -50,7 +50,7 @@ function App() {
   const classes = useStyles();
 
   const filteredData = data;
-  const [query, setQuery] = useState("");
+  const [game, createNewGame] = useState("");
   const tags = [];
 
   function retrieveRandom() {
@@ -63,28 +63,14 @@ function App() {
     <Container className={classes.cardGrid} maxWidth="md">
       <header className="App-header">
         {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <h1>Relationship Roulette</h1>
-        <p>{data.length} ideas to bring some adventure to your relationship! </p>
+        <h1>Blend In!</h1>
+        <p>The social deduction game!</p>
         <Grid container spacing={4} alignItems={"center"}>
           <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => setQuery("him")}>For him</Button>
-          </Box>
-          <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => setQuery("her")}>For her</Button>
-          </Box>
-          <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => setQuery("gift")}>Gifts</Button>
-          </Box>
-          <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => setQuery("date")}>Date ideas</Button>
+            <Button variant="contained" color="primary" onClick={() => createNewGame("ZXEW")}>Create new game!</Button>
           </Box>
         </Grid>
          _
-        <Grid container spacing={4} align>
-          <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => retrieveRandom()}>Gimme a random idea</Button>
-            </Box>
-        </Grid>
       </header>
 
       <Container maxWidth="md">
@@ -95,14 +81,14 @@ function App() {
           {/* End hero unit */}
           <Grid container spacing={4}>
 
-            {data.filter(data => data.tags.includes(query)).map((filteredData, index) => (
+            {data.filter(data => data).map((filteredData, index) => (
 
             // {filteredData && filteredData.map((poll) => (
               <Grid item key={index} xs={12} sm={6} md={6}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={"https://source.unsplash.com/random/640x360/?sig="+index}
+                    image={""+index} 
                     title= {filteredData.title}
                   />
                   <CardContent className={classes.cardContent}>
@@ -113,21 +99,6 @@ function App() {
                       Description goes here.
                     </Typography>
                   </CardContent>
-                  <Grid>
-                    <Chip label={filteredData.tags.split(',')[0]} variant="outlined" />
-                    <Chip label={filteredData.tags.split(',')[1]} variant="outlined" />
-                    <Chip label={filteredData.tags.split(',')[2]} variant="outlined" />
-                    <Chip label={filteredData.tags.split(',')[3]} variant="outlined" />
-                  </Grid>
-                  
-                  {/* <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions> */}
                 </Card>
               </Grid>
             ))}

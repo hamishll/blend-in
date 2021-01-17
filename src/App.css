@@ -2,7 +2,7 @@
   text-align: center;
 }
 body {
-  background-color: #ff9cc2;
+  background-color: #ffd900;
 }
 .App-logo {
   height: 10vmin;
@@ -16,13 +16,12 @@ body {
 }
 
 .App-header {
-  background-color: #ff9cc2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {

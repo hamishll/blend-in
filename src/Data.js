@@ -1,23 +1,23 @@
 export const data = [
   {
-    title: "Go on a walk at sunset",
+    title: "xx",
     description: "None set",
-    tags: "him, her, date"
+    tags: ""
   },
   {
-    title: "Buy a customised diary",
+    title: "xx",
     description: "None set",
-    tags: "him, her, gift"
+    tags: ""
   },
   {
-    title: "Go on a spa break together",
+    title: "xx",
     description: "None set",
-    tags: "him, her, gift"
+    tags: ""
   },
   {
-    title: "Hide a cute note in their pocket",
+    title: "xx",
     description: "None set",
-    tags: "him, her"
+    tags: ""
   },
 ]
 

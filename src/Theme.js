@@ -1,12 +1,12 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { green, pink } from '@material-ui/core/colors';
+import { yellow } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: pink[500],
-      light: pink[300],
-      dark: pink[900],
+      main: yellow[500],
+      light: yellow[300],
+      dark: yellow[900],
     },
     //secondary: {
       //main: '#f44336',
