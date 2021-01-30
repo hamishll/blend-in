@@ -156,6 +156,10 @@ function voteFor(id) {
     db.collection("games").doc(gameID).update({
         "votesSubmitted": firebase.firestore.FieldValue.increment(1)
         })
+    console.log(id);
+    db.collection("users").doc(userID).update({
+        "votedFor": id  
+        })
     };
 
 document.querySelectorAll('.player-voteFor').forEach(item => {
