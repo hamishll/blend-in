@@ -1,2 +1,3 @@
-# blend-in
- A social deduction game
+# Blend In!
+
+A social deduction game!
