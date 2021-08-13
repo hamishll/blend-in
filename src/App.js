@@ -10,9 +10,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
 import { useState } from 'react';
 import './App.css';
+// import './blendIn.js';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -47,35 +47,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
   const classes = useStyles();
 
-  const filteredData = data;
-  const [game, createNewGame] = useState("");
-  const tags = [];
+  const [game, setGameID] = useState("");
 
-  function retrieveRandom() {
-    console.log("Random called");
+  function createNewGame() {
+    let newID = newRandomID();
+    window.history.pushState("object or string", "", "/"+newID);
+    setGameID(newID);
   }
+  function newRandomID() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 22 characters
+    // after the decimal.
+    return '' + Math.random().toString(24).substr(2, 4).toUpperCase();
+  };
 
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
     <Container className={classes.cardGrid} maxWidth="md">
       <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
         <h1>Blend In!</h1>
         <p>The social deduction game!</p>
+        <p>Room code {game}</p>
         <Grid container spacing={4} alignItems={"center"}>
           <Box m={1}> 
-            <Button variant="contained" color="primary" onClick={() => createNewGame("ZXEW")}>Create new game!</Button>
+            <Button variant="contained" color="primary" onClick={() => createNewGame()}>Create new game!</Button>
           </Box>
         </Grid>
          _
       </header>
-
-      <Container maxWidth="md">
-        
-      </Container>
 
       <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
